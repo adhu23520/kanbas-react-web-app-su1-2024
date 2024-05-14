@@ -1,5 +1,7 @@
 export default function Lab1() {
     return (
+        <div>
+            <h1>Adhavan Alexander</h1>
       <div id="wd-lab1">
         <h2>Lab 1</h2>
         <h3>HTML Examples</h3>
@@ -311,10 +313,10 @@ to get dummy text<br/>
 
 <h4>The github repository is as follows:</h4>
 
-<a id="wd-github" href="https://www.lipsum.com">click here</a>
+<a id="wd-github" href="https://github.com/adhu23520">click here</a>
 <br/>
 
-
+</div>
       </div>
     );
   }
