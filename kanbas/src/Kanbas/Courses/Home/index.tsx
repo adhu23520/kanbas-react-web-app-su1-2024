@@ -2,12 +2,13 @@ import Modules from "../Modules";
 import CourseStatus from "./Status";
 export default function Home() {
   return (
-    <div id="wd-home" className = "d-flex">
-        <div>
+    <table id="wd-home">
+      <tr>
+        <td valign="top">
           <Modules />
-        </div>
-        <div>
+        </td>
+        <td valign="top">
           <CourseStatus />
-</div> 
-</div>
+</td> </tr>
+</table>
 ); }

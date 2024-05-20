@@ -5,22 +5,22 @@ import Courses from "./Courses";
 export default function Kanbas() {
     return (
       <div id="wd-kanbas">
+  <div className="d-flex">
 
-<table>
-<tr>
-<td valign="top">
-<KanbasNavigation />
-</td>
-<td valign="top">
-<Routes>
-<Route path="/" element={<Navigate to="Dashboard" />} />
-<Route path="Dashboard" element={<Dashboard />} />
-<Route path="Courses/:id/*" element={<Courses />} />
-</Routes>
-</td>
-</tr>
+    <div className="bg-black">
+      <KanbasNavigation />
+    </div>
 
-</table>
+    <div className="flex-fill p-4">
+      <Routes>
+        <Route path="/" element={<Navigate to="Dashboard" />} />
+        <Route path="Dashboard" element={<Dashboard />} />
+        <Route path="Courses/:cid/*" element={<Courses />} />
+      </Routes>
+    </div>
 
   </div>
-  );}
+</div>
+
+  );
+  }
