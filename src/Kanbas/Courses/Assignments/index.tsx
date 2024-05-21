@@ -16,7 +16,7 @@ export default function Assignments() {
             <FaSearch />
           </span>
         </div>
-        <input type="text" className="form-control" placeholder="Search..." aria-label="Username" aria-describedby="basic-addon1" />
+        <input type="text" className="form-control" placeholder="Search..." />
       </div>
       <div className="float-end">
         <button id="wd-add-assignment-group" className="btn btn-secondary p-1 me-1">+ Group</button>
@@ -89,7 +89,7 @@ export default function Assignments() {
                 <span className="heading">
                 <a className="wd-assignment-link"
               href="#/Kanbas/Courses/1234/Assignments/123">
-              A1 - ENV + HTML<br/>
+              A1<br/>
   </a> 
                 </span>
                 <span className="content fs-6">
@@ -99,28 +99,43 @@ export default function Assignments() {
               <LessonControlButtons />
 
             </li>
-            <li className="wd-lesson list-group-item p-3 ps-1">
-              <BsGripVertical className="me-2 fs-3" />
-              Introduction to the course
+            <li className="wd-lesson list-group-item p-3 ps-1
+             d-flex flex-row justify-content-between align-items-center gap-3">
+              <BsGripVertical className="me-1 fs-1" />
+              <BsBook className="me-1 fs-1" />
+              <div className="d-flex flex-column gap-1">
+                <span className="heading">
+                <a className="wd-assignment-link"
+              href="#/Kanbas/Courses/1234/Assignments/123">
+              A2<br/>
+  </a> 
+                </span>
+                <span className="content fs-6">
+                  <span className="text-danger">Multiple Modules</span> | Not available untill May 6 at 12:00 am | Due May 13 at 11.59pm | 100pts
+                </span>
+              </div>
               <LessonControlButtons />
 
             </li>
-            <li className="wd-lesson list-group-item p-3 ps-1">
-              <BsGripVertical className="me-2 fs-3" />
-              Learn what is Web Development
+            <li className="wd-lesson list-group-item p-3 ps-1
+             d-flex flex-row justify-content-between align-items-center gap-3">
+              <BsGripVertical className="me-1 fs-1" />
+              <BsBook className="me-1 fs-1" />
+              <div className="d-flex flex-column gap-1">
+                <span className="heading">
+                <a className="wd-assignment-link"
+              href="#/Kanbas/Courses/1234/Assignments/123">
+              A3<br/>
+  </a> 
+                </span>
+                <span className="content fs-6">
+                  <span className="text-danger">Multiple Modules</span> | Not available untill May 6 at 12:00 am | Due May 13 at 11.59pm | 100pts
+                </span>
+              </div>
               <LessonControlButtons />
 
             </li>
-            <li className="wd-lesson list-group-item p-3 ps-1">
-              <BsGripVertical className="me-2 fs-3" />
-              LESSON 1
-              <LessonControlButtons />
-            </li>
-            <li className="wd-lesson list-group-item p-3 ps-1">
-              <BsGripVertical className="me-2 fs-3" />
-              LESSON 2
-              <LessonControlButtons />
-            </li>
+            
           </ul>
         </li>
       </ul>

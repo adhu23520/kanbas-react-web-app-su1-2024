@@ -3,11 +3,11 @@ export default function AssignmentEditor() {
     <div id="wd-assignments-editor">
       <tr><b><label htmlFor="wd-name">Assignment Name</label></b></tr>
       <br></br>
-      <tr><input id="wd-name" className="form-control w-100" value="A1 - ENV + HTML" /></tr>
+      <tr><input id="wd-name" className="form-control d-flex" value="A1" /></tr>
       <br></br>
-      <textarea id="wd-description" rows={10} cols={50} className="form-control">
-        The assignment is available online Submit a
-        link to the landing page of your Web
+      <textarea id="wd-description" rows={10} cols={10} className="form-control">
+        The assignment is available online.
+        Submit a link to the landing page of your Web
         application running on Netlify. The landing
         page should include the following: Your full
         name and section Links to each of the lab
@@ -33,7 +33,7 @@ export default function AssignmentEditor() {
             <label htmlFor="wd-grp">Assignment Group</label>
           </td>
           <td>
-            <select name="Assignment" id="Assignment" className="form-control">
+            <select name="Assignment" id="Assignment" className="form-control dropdown-toggle show">
               <option value="Assignment">Assignment</option>
             </select>
           </td> </tr>
@@ -94,7 +94,7 @@ export default function AssignmentEditor() {
 
 
         <tr>
-          <td align="right">Assign</td>
+          <td align="right" valign="top">Assign</td>
           <div className="p-2 d-flex flex-column gap-2" style={{
             border: "2px solid grey"
           }}>
