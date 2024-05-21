@@ -88,8 +88,8 @@ export default function Assignments() {
               <div className="d-flex flex-column gap-1">
                 <span className="heading">
                 <a className="wd-assignment-link"
-              href="#/Kanbas/Courses/1234/Assignments/123">
-              A1<br/>
+              href="#/Kanbas/Courses/1234/Assignments/123" style={{color: 'black', textDecoration: 'none'}}>
+              <b>A1</b><br/>
   </a> 
                 </span>
                 <span className="content fs-6">
@@ -106,8 +106,8 @@ export default function Assignments() {
               <div className="d-flex flex-column gap-1">
                 <span className="heading">
                 <a className="wd-assignment-link"
-              href="#/Kanbas/Courses/1234/Assignments/123">
-              A2<br/>
+              href="#/Kanbas/Courses/1234/Assignments/123" style={{color: 'black', textDecoration: 'none'}}>
+              <b>A2</b><br/>
   </a> 
                 </span>
                 <span className="content fs-6">
@@ -124,8 +124,8 @@ export default function Assignments() {
               <div className="d-flex flex-column gap-1">
                 <span className="heading">
                 <a className="wd-assignment-link"
-              href="#/Kanbas/Courses/1234/Assignments/123">
-              A3<br/>
+              href="#/Kanbas/Courses/1234/Assignments/123" style={{color: 'black', textDecoration: 'none'}}>
+              <b>A3</b><br/>
   </a> 
                 </span>
                 <span className="content fs-6">
