@@ -3,8 +3,14 @@ import { FaSearch } from "react-icons/fa"
 import LessonControlButtons from "../Modules/LessonControlButtons";
 import ModuleControlButtons from "../Modules/ModuleControlButtons";
 import AssignmentControlButtons from "./AssignmentControlButtons";
+import assignments from "../../Database/assignments.json"
+import { useParams } from "react-router-dom";
+
 
 export default function Assignments() {
+  const { cid } = useParams();
+  const courseAssignments = assignments.filter((assignment) => assignment.course === cid);
+  
   return (
     <div id="wd-assignments">
       {/* <input id="wd-search-assignment"
@@ -81,7 +87,38 @@ export default function Assignments() {
           <ul className="wd-lessons list-group rounded-0" style={{
             borderLeft:"2px solid green"
           }}>
-            <li className="wd-lesson list-group-item p-3 ps-1
+          
+
+            {
+              courseAssignments.map((assignment) => (
+                <>
+                <li className="wd-lesson list-group-item p-3 ps-1
+             d-flex flex-row justify-content-between align-items-center gap-3">
+              <BsGripVertical className="me-1 fs-1" />
+              <BsBook className="me-1 fs-1" />
+              <div className="d-flex flex-column gap-1">
+                <span className="heading">
+                <a className="wd-assignment-link"
+              href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`} style={{color: 'black', textDecoration: 'none'}}>
+              <b>{assignment.title}</b><br/>
+  </a> 
+                </span>
+                <span className="content fs-6">
+                  <span className="text-danger">Multiple Modules</span> | Not available untill May 6 at 12:00 am | Due May 13 at 11.59pm | 100pts
+                </span>
+              </div>
+              <LessonControlButtons />
+
+            </li>
+                </>
+
+              ))
+            }
+            
+
+
+
+            {/* <li className="wd-lesson list-group-item p-3 ps-1
              d-flex flex-row justify-content-between align-items-center gap-3">
               <BsGripVertical className="me-1 fs-1" />
               <BsBook className="me-1 fs-1" />
@@ -134,7 +171,7 @@ export default function Assignments() {
               </div>
               <LessonControlButtons />
 
-            </li>
+            </li> */}
             
           </ul>
         </li>

@@ -1,7 +1,13 @@
 import Borders from '../../Labs/Lab2/Borders';
 import './index.css';
+import { assignments, enrollments, users, grades } from '../Database';
 import { FaSearch, FaCog, FaFileImport, FaFileExport, FaFilter } from "react-icons/fa"
+import { useParams } from 'react-router-dom';
 export default function Grades() {
+  const {cid} = useParams();
+  const currentUsers = enrollments.filter((enrollment) => enrollment.course === cid);
+  const currentAssignments = assignments.filter((assignment)=> assignment.course === cid); 
+
     return(
         <div id="wd-grades">
             <div id="wd-buttons-top" className="d-flex float-end"> 
@@ -56,15 +62,42 @@ export default function Grades() {
   <div className="row header"
   style={{backgroundColor: 'lightgrey'}}>
     <div className="cell">Student Name</div>
-    <div className="cell">A1 Setup</div>
+    {currentAssignments.map((currentAssignment) => (
+      <div className="cell">
+        {currentAssignment.title}
+      </div>
+    ))}
+    {/* <div className="cell">A1 Setup</div>
     <div className="cell">A2 HTML</div>
     <div className="cell">A3 CSS</div>
-    <div className="cell">A4 Bootstrap</div>
+    <div className="cell">A4 Bootstrap</div> */}
 
   </div>
+
+  {
+    currentUsers.map((currentUser) => {
+      const user = users.filter((user) => user._id === currentUser.user);
+      const userGrades = grades.filter((grade) => grade.student === currentUser.user);
+      return(
+        <div className="row">
+        <div className="cell text-danger">
+          {user[0].firstName}
+        </div>
+        {
+          userGrades.map((userGrade) => (
+            <div className="cell">
+              {
+                userGrade.grade
+              }
+            </div>
+          ))
+        }
+        </div>
+      )
+    })
+  }
   
-  
-  <div className="row">
+  {/* <div className="row">
     <div className="cell text-danger">Jane Adams</div>
     <div className="cell">100%</div>
     <div className="cell">96.5%</div>
@@ -108,7 +141,7 @@ export default function Grades() {
     <div className="cell">100%</div>
     <div className="cell">100%</div>
     
-  </div>
+  </div> */}
   
 </div>
 

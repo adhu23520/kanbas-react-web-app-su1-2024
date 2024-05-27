@@ -1,12 +1,20 @@
+import { Link, useParams } from "react-router-dom";
+import { assignments } from "../../Database";
+
 export default function AssignmentEditor() {
+  const {cid} = useParams();
+  const {aid} = useParams();
+  const currentAssignment = assignments.filter((assignment) => assignment._id === aid);
+  
   return (
     <div id="wd-assignments-editor">
       <tr><b><label htmlFor="wd-name">Assignment Name</label></b></tr>
       <br></br>
-      <tr><input id="wd-name" className="form-control d-flex" value="A1" /></tr>
+      <tr><input id="wd-name" className="form-control d-flex" value={currentAssignment[0].title} /></tr>
       <br></br>
       <textarea id="wd-description" rows={10} cols={10} className="form-control">
-        The assignment is available online.
+        {currentAssignment[0].description}
+        {/* The assignment is available online.
         Submit a link to the landing page of your Web
         application running on Netlify. The landing
         page should include the following: Your full
@@ -14,7 +22,7 @@ export default function AssignmentEditor() {
         assignments Link to the Kanbas application
         Links to all relevant source code repositories
         The Kanbas application should include a link
-        to navigate back to the landing page.
+        to navigate back to the landing page. */}
       </textarea>
       <br></br>
       <table>
@@ -144,9 +152,12 @@ export default function AssignmentEditor() {
         <tr>
           <td></td>
           <td></td>
-          <td><input className="btn btn-secondary me-1" type="button" id="wd-points" value="CANCEL" />
-            <input className="btn btn-danger me-1" type="button" id="wd-points" value="SAVE" /></td>
-
+          {/* <td><input className="btn btn-secondary me-1" type="button" id="wd-points" value="CANCEL" />
+            <input className="btn btn-danger me-1" type="button" id="wd-points" value="SAVE" /></td> */}
+            <td>
+              <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-secondary me-1">Cancel</Link>
+              <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-danger me-1">Save</Link>
+            </td>
         </tr>
 
       </table>
