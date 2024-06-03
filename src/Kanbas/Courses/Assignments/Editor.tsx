@@ -1,19 +1,75 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { assignments } from "../../Database";
+import { addAssignment, updateAssignment, deleteAssignment }
+  from "./reducer";
+import { useSelector, useDispatch } from "react-redux";
+import { title } from "process";
+import { useEffect, useState } from "react";
+
 
 export default function AssignmentEditor() {
   const {cid} = useParams();
   const {aid} = useParams();
-  const currentAssignment = assignments.filter((assignment) => assignment._id === aid);
+  const { assignments } = useSelector((state: any) => state.assignmentReducer);
+  const navigate = useNavigate();
+  // let currentAssignment = {
+  //   _id: "",
+  //   title: "",
+  //   course: "",
+  //   description: ""
+  // };
+  const [currentAssignment, setCurrentAssignment] = useState({
+    _id: new Date().getTime().toString(),
+    title: "",
+    course: "",
+    description: "",
+  });
+
+  useEffect(() => {
+    if (aid === "newAssignment") {
+      setCurrentAssignment({ _id: "0", title: "New Assignment", course: String(cid) , description: "New Assignment"});
+    } else {
+      const assignment = assignments.find((assignment:any) => assignment._id === aid);
+      setCurrentAssignment(assignment)
+    }
+  }, [])
+
+  console.log(currentAssignment)
+
+  const dispatch = useDispatch();
+
+  const handleSaveButton = () => {
+    if (aid === "newAssignment") {
+      dispatch(addAssignment(currentAssignment))
+    } else {
+      dispatch(updateAssignment(currentAssignment))
+    }
+    navigate(`/Kanbas/Courses/${cid}/Assignments`);
+  }
   
   return (
     <div id="wd-assignments-editor">
       <tr><b><label htmlFor="wd-name">Assignment Name</label></b></tr>
       <br></br>
-      <tr><input id="wd-name" className="form-control d-flex" value={currentAssignment[0].title} /></tr>
+      <tr><input id="wd-name" className="form-control d-flex" value={currentAssignment.title} 
+      onChange={(e) => {
+        setCurrentAssignment({
+          ...currentAssignment,
+          title: e.target.value
+        })
+      }}
+      /></tr>
       <br></br>
-      <textarea id="wd-description" rows={10} cols={10} className="form-control">
-        {currentAssignment[0].description}
+      <textarea id="wd-description" rows={10} cols={10} className="form-control"
+      value={currentAssignment.description}
+      onChange={(e) => {
+        setCurrentAssignment({
+          ...currentAssignment,
+          description: e.target.value
+        })
+      }}
+      >
+        {currentAssignment.description}
         {/* The assignment is available online.
         Submit a link to the landing page of your Web
         application running on Netlify. The landing
@@ -156,7 +212,10 @@ export default function AssignmentEditor() {
             <input className="btn btn-danger me-1" type="button" id="wd-points" value="SAVE" /></td> */}
             <td>
               <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-secondary me-1">Cancel</Link>
-              <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-danger me-1">Save</Link>
+              {/* <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-danger me-1">Save</Link> */}
+              <button className="btn btn-danger me-1" onClick={handleSaveButton}>
+                Save
+              </button>
             </td>
         </tr>
 
