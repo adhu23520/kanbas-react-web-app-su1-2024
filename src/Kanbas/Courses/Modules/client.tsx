@@ -26,3 +26,7 @@ export const updateModule = async (module: any) => {
     return response.data;
 };
 
+export function deleteAssignment(moduleId: string) {
+  throw new Error("Function not implemented.");
+}
+

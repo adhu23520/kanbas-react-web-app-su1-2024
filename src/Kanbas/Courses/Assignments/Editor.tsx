@@ -5,6 +5,8 @@ import { addAssignment, updateAssignment, deleteAssignment }
 import { useSelector, useDispatch } from "react-redux";
 import { title } from "process";
 import { useEffect, useState } from "react";
+import * as client from "./client";
+import { current } from "@reduxjs/toolkit";
 
 
 export default function AssignmentEditor() {
@@ -34,15 +36,17 @@ export default function AssignmentEditor() {
     }
   }, [])
 
-  console.log(currentAssignment)
 
   const dispatch = useDispatch();
 
-  const handleSaveButton = () => {
+  const handleSaveButton = async() => {
     if (aid === "newAssignment") {
-      dispatch(addAssignment(currentAssignment))
+      // dispatch(addAssignment(currentAssignment))
+      const newAssignment = await client.createAssignment(cid as string, currentAssignment);
+      dispatch(addAssignment(newAssignment));
     } else {
-      dispatch(updateAssignment(currentAssignment))
+      const status = await client.updateAssignment(currentAssignment);
+      dispatch(updateAssignment(currentAssignment));
     }
     navigate(`/Kanbas/Courses/${cid}/Assignments`);
   }

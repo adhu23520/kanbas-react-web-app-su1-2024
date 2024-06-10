@@ -1,19 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { assignments } from "../../Database";
+// import { assignments } from "../../Database";
 const initialState = {
-    assignments: assignments,
+    assignments: [],
 };
 
 const assignmentSlice = createSlice({
     name: "assignments",
     initialState,
     reducers: {
-        addAssignment: (state, { payload: newAssignment }) => {
-            // const newAssignment: any = {
+
+        setAssignments: (state, action) => {
+            state.assignments = action.payload;
+        },
+
+
+        addAssignment: (state, { payload: assignment }) => {
+            // const newAssignmnet: any = {
             //     _id: new Date().getTime().toString(),
-            // newAssignment._id = new Date().getTime().toString();
+            //     lessons: [],
+            //     name: module.name,
+                
+            //   };
+            const newAssignment: any = {
+                _id: new Date().getTime().toString(),
+                course: assignment.course,
+                title: assignment.title,
+                description: assignment.description,
+                // newAssignment._id = new Date().getTime().toString(),
+            };
             // const assignment = [...newAssignment, _id: new Date().getTime().toString()]
-            state.assignments = [newAssignment, ...state.assignments];
+            state.assignments = [newAssignment, ...state.assignments] as any;
 
         },
 
@@ -22,8 +38,8 @@ const assignmentSlice = createSlice({
 
         },
 
-        updateAssignment: (state, {payload: newAssignment}) => {
-            state.assignments = state.assignments.map((assignment: any) => assignment._id === newAssignment._id ? newAssignment : assignment );
+        updateAssignment: (state, { payload: newAssignment }) => {
+            state.assignments = state.assignments.map((assignment: any) => assignment._id === newAssignment._id ? newAssignment : assignment) as any;
         },
 
     },
@@ -31,7 +47,8 @@ const assignmentSlice = createSlice({
 export const {
     addAssignment,
     deleteAssignment,
-    updateAssignment
+    updateAssignment,
+    setAssignments
 } = assignmentSlice.actions;
 
 export default assignmentSlice.reducer;

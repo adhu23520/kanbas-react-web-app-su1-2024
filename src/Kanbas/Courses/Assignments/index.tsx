@@ -5,17 +5,35 @@ import ModuleControlButtons from "../Modules/ModuleControlButtons";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 // import assignments from "../../Database/assignments.json"
 import { useParams } from "react-router-dom";
-import { addAssignment, updateAssignment, deleteAssignment }
+import { addAssignment, updateAssignment, deleteAssignment, setAssignments }
   from "./reducer";
+import * as client from "./client";
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 
 export default function Assignments() {
+
+  
+
+  
   const { assignments } = useSelector((state: any) => state.assignmentReducer);
   const dispatch = useDispatch();
   const { cid } = useParams();
+
+  const fetchAssignments = async () => {
+    const assignments = await client.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignments));
+  };
+
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
+
+  
   const courseAssignments = assignments.filter((assignment: any) => assignment.course === cid);
 
+  
   return (
     <div id="wd-assignments">
       {/* <input id="wd-search-assignment"
