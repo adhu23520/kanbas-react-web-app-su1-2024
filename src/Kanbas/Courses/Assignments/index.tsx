@@ -78,10 +78,12 @@ export default function Assignments() {
                     <BsBook className="me-1 fs-1" />
                     <div className="d-flex flex-column gap-1">
                       <span className="heading">
+
                         <a className="wd-assignment-link"
                           href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`} style={{ color: 'black', textDecoration: 'none' }}>
                           <b>{assignment.title}</b><br />
                         </a>
+
                       </span>
                       <span className="content fs-6">
                         <span className="text-danger">Multiple Modules</span> | Not available untill May 6 at 12:00 am | Due May 13 at 11.59pm | 100pts

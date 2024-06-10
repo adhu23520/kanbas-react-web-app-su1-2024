@@ -6,6 +6,7 @@ import Home from "./Home";
 import { Navigate, Route, Routes, useLocation, useParams } from "react-router";
 import { FaAlignJustify } from "react-icons/fa";
 import Grades from "../Grades";
+import Quizzes from "./Quizzes";
 // import { courses } from "../Database";
 
 export default function Courses({ courses }: { courses: any[]; }) {
@@ -33,6 +34,7 @@ export default function Courses({ courses }: { courses: any[]; }) {
         <Route path="Assignments" element={<Assignments />} />
         <Route path="Assignments/:aid" element={<AssignmentEditor />} />
         <Route path="Grades" element={<Grades />} />
+        <Route path="Quizzes" element={<Quizzes />} />
       </Routes>
     </div>
 
