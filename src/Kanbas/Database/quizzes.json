@@ -1,0 +1,74 @@
+[
+    {
+        "_id": "A101",
+        "title": "Q1",
+        "course": "RS101",
+        "due": "May 17 at 11:59pm",
+        "points": 100,
+        "questions": 10
+    },
+    {
+        "_id": "A102",
+        "title": "Q2",
+        "course": "RS101",
+        "due": "May 20 at 11:59pm",
+        "points": 100,
+        "questions": 10
+    },
+    {
+        "_id": "A103",
+        "title": "Q3",
+        "course": "RS101",
+        "due": "May 22 at 11:59pm",
+        "points": 100,
+        "questions": 10
+    },
+    {
+        "_id": "A201",
+        "title": "Q4",
+        "course": "RS102",
+        "due": "May 24 at 11:59pm",
+        "points": 100,
+        "questions": 10
+    },
+    {
+        "_id": "A202",
+        "title": "Q5",
+        "course": "RS102",
+        "due": "May 26 at 11:59pm",
+        "points": 100,
+        "questions": 10
+    },
+    {
+        "_id": "A203",
+        "title": "Q6",
+        "course": "RS102",
+        "due": "May 28 at 11:59pm",
+        "points": 100,
+        "questions": 10
+    },
+    {
+        "_id": "A301",
+        "title": "Q7",
+        "course": "RS103",
+        "due": "May 30 at 11:59pm",
+        "points": 100,
+        "questions": 10
+    },
+    {
+        "_id": "A302",
+        "title": "Q8",
+        "course": "RS103",
+        "due": "June 2 at 11:59pm",
+        "points": 100,
+        "questions": 10
+    },
+    {
+        "_id": "A303",
+        "title": "Q9",
+        "course": "RS103",
+        "due": "June 5 at 11:59pm",
+        "points": 100,
+        "questions": 10
+    }
+]
