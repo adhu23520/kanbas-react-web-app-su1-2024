@@ -3,25 +3,48 @@ import { FaEllipsisVertical } from "react-icons/fa6";
 import { FaCheckCircle } from "react-icons/fa";
 import "./index.css";
 import * as db from "../../Database";
-import { useParams } from "react-router";
-// import { quizzes } from "../../Database";
-const quizzes = db.quizzes;
+import { Route, Routes, useParams } from "react-router";
+import Details from "./details";
+import QuizFB from "./QuizFB";
+import DetailsEditor from "./detailsEditor";
+import QuizTF from "./QuizTF";
+import QuizMCQ from "./QuizMCQ";
+import quizzes from "../../Database/quizzes.json"
+import Questions from "./Questions";
+
+// const quizzes = db.quizzes;
 
 export default function Quizzes() {
     const { cid } = useParams();
+    const { qid } = useParams();
+
     return (
         <div id="wd-css-flex" className="column">
             <div className="wd-search-and-buttons d-flex flex-row">
                 <div id="wd-search" className="wd-search d-flex flex-row me-15">
-                    <FaSearch className="wd-quiz-icon-search" />
-                    <input type="text" id="search" name="search" placeholder="Search for quiz" />
+                    <FaSearch className="d-flex wd-quiz-icon-search" />
+                    <input type="text" id="search" className="d-flex search align-middle" placeholder="Search for quiz" />
                 </div>
 
 
 
                 <div className="d-flex flex-row justify-content-end ms-auto mb-3">
-                    <button className="btn btn-danger me-2">+ Quiz</button>
-                    <button className="btn btn-secondary"><FaEllipsisVertical /></button>
+                    
+                    <a href={`#/Kanbas/Courses/${cid}/Quizzes/${qid}/Editor`} className="btn btn-danger me-2">+ Quiz</a>
+
+
+                    <div className="dropdown">
+                        <button className="dropbtn"><FaEllipsisVertical /></button>
+                        <div className="dropdown-content">
+                            <a href={`#/Kanbas/Courses/${cid}/Quizzes/${qid}/Details`}>Edit</a>
+                            <a href="#">Delete</a>
+                            {/* Removes quiz and stays in quiz list screen */}
+                            <a href="#">Publish</a>
+                            {/* Big task */}
+                            <a href="#">Copy</a>
+                            <a href="#">Sort</a>
+                        </div>
+                    </div>
                 </div>
 
             </div>

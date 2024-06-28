@@ -3,7 +3,7 @@ import LessonControlButtons from "./LessonControlButtons";
 import { BsGripVertical } from 'react-icons/bs';
 import ModulesControls from "./ModulesControls";
 import { useParams } from "react-router";
-import * as db from "../../Database";
+import * as db from "../../Database";   
 import { useState, useEffect } from "react";
 import { setModules, addModule, editModule, updateModule, deleteModule } from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
@@ -35,7 +35,7 @@ export default function Modules() {
 
 
   const fetchModules = async () => {
-    const modules = await client.findModulesForCourse(cid as string);
+    const modules = await client.findModulesByCourseId(cid as string);
     dispatch(setModules(modules));
   };
 
@@ -70,7 +70,7 @@ export default function Modules() {
                 {!module.editing && module.name}
                 {module.editing && (
                   <input className="form-control w-50 d-inline-block"
-                    onChange={(e) => saveModule({ ...module, name: e.target.value }) }
+                    onChange={(e) => saveModule({ ...module, name: e.target.value })}
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
                         saveModule({ ...module, editing: false });

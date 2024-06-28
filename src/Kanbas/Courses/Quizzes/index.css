@@ -6,7 +6,7 @@
     display: flex;
 }
 
-.wd-quiz-icon-search{
+.wd-quiz-icon-search {
     margin-top: 5px;
     margin-right: 5px;
 
@@ -23,18 +23,32 @@
 
 .wd-search {
     margin: 10px;
+    border: 1px solid rgb(179, 179, 179);
+    border-radius: 6px;
+    align-items: center;
 }
 
-.wd-links{
+.search {
+    border: none;
+}
+
+.wd-quiz-icon-search {
+    align-items: center;
+    margin: 2px;
+    margin-right: 5px;
+    width: 100px;
+}
+
+.wd-links {
     color: black;
     text-decoration: none;
 }
 
-.wd-links:hover{
+.wd-links:hover {
     text-decoration: underline;
 }
 
-.wd-quiz-entries:hover{
+.wd-quiz-entries:hover {
     background-color: rgb(242, 251, 255);
 }
 
@@ -42,23 +56,238 @@
     margin-left: auto;
 } */
 
-.wd-search-and-buttons{
+.wd-search-and-buttons {
     margin-top: auto;
+    height: 60px;
+
 }
 
-.wd-quiz-entries{
+.wd-quiz-entries {
     border-left: 5px solid green;
 }
 
-.endIcons{
+.endIcons {
     align-items: center;
     color: green;
 }
 
-.pointsAPublished{
+.pointsAPublished {
     align-items: center;
 }
 
-.QuizName{
+.QuizName {
     width: 20%;
+    border: 1px solid rgb(218, 218, 218);
 }
+
+.quizInstructions {
+    margin: 10px;
+}
+
+.circleIcon {
+    border: 0;
+    background-color: white;
+}
+
+.gly-rotate-45 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.5);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    font-size: 30px;
+    color: green;
+}
+
+.options1 {
+    border: none;
+    background-color: white;
+}
+
+.textOptions {
+    width: 100px;
+}
+
+.icons2 {
+    border: none;
+    background-color: white;
+    align-items: center;
+}
+
+.straightLine {
+    font-size: 20px;
+}
+
+.options2 {
+    border: none;
+}
+
+.options2 {
+    font-size: 17px;
+    margin: 15px;
+}
+
+.textBox {
+    flex-grow: 1;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 5px;
+    height: 100px;
+
+}
+
+.belowTextBox {
+    border: none;
+    background-color: white;
+    color: rgb(255, 94, 94);
+}
+
+.margin2 {
+    margin: 2px;
+    margin-top: 10px;
+}
+
+.textBoxforTime {
+    width: 30px;
+}
+
+.border4textbox {
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 5px;
+    width: 465px;
+    height: 40px;
+    align-items: center;
+}
+
+.assignDetails {
+    border: 1px solid rgb(176, 176, 176);
+    border-radius: 5px;
+}
+
+.lastBox {
+    margin: 20px;
+}
+
+.addButton {
+    background-color: rgb(166, 166, 166);
+    align-items: center;
+    justify-content: center;
+}
+
+.addButtonstyle {
+    border: none;
+    background-color: rgb(166, 166, 166);
+    align-items: center;
+}
+
+/* //...................QuizMainPage............... */
+
+.dropbtn {
+    background-color: #929292;
+    color: white;
+    /* padding: 16px; */
+    font-size: 16px;
+    border: 1px solid #929292;
+    border-radius: 10px;
+    height: 45px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    height: 60px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 5px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #bcbcbc;
+    border: 1px solid #bcbcbc;
+}
+
+/* //...........details................// */
+.topButtons {
+    border: 1px solid rgb(170, 170, 170);
+    border-radius: 5px;
+
+}
+
+.edit {
+    border: none;
+    margin: 2px;
+}
+
+.penciledit {
+    border: 1px solid rgb(170, 170, 170);
+    border-radius: 5px;
+    align-items: center;
+    background-color: #ededed;
+}
+
+.pencileditfull {
+    border: none;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.pointtitles {
+    font-weight: bold;
+    text-align: right;
+    /* flex-grow: 1; */
+    /* width: 100%; */
+}
+
+.pointtitleanswers {
+    text-align: left;
+}
+
+
+
+.quizDetailsContent {
+    padding: 10px;
+}
+
+.points {
+    margin: 5px;
+    text-align: right;
+
+}
+
+.points1 {
+    margin: 5px;
+
+}
+
+.dueDetails {
+    margin-left: 100px;
+}
+
+.topDetails {
+    font-weight: bold;
+}
+
+/* //...........detailsEditor................// */

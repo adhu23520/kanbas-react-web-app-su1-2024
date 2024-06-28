@@ -14,9 +14,9 @@ import { useEffect } from "react";
 
 export default function Assignments() {
 
-  
 
-  
+
+
   const { assignments } = useSelector((state: any) => state.assignmentReducer);
   const dispatch = useDispatch();
   const { cid } = useParams();
@@ -30,10 +30,10 @@ export default function Assignments() {
     fetchAssignments();
   }, []);
 
-  
+
   const courseAssignments = assignments.filter((assignment: any) => assignment.course === cid);
 
-  
+
   return (
     <div id="wd-assignments">
       {/* <input id="wd-search-assignment"

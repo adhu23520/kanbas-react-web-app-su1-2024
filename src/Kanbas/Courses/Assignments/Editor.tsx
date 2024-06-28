@@ -14,12 +14,7 @@ export default function AssignmentEditor() {
   const {aid} = useParams();
   const { assignments } = useSelector((state: any) => state.assignmentReducer);
   const navigate = useNavigate();
-  // let currentAssignment = {
-  //   _id: "",
-  //   title: "",
-  //   course: "",
-  //   description: ""
-  // };
+  
   const [currentAssignment, setCurrentAssignment] = useState({
     _id: new Date().getTime().toString(),
     title: "",
@@ -216,7 +211,7 @@ export default function AssignmentEditor() {
             <input className="btn btn-danger me-1" type="button" id="wd-points" value="SAVE" /></td> */}
             <td>
               <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-secondary me-1">Cancel</Link>
-              {/* <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-danger me-1">Save</Link> */}
+              
               <button className="btn btn-danger me-1" onClick={handleSaveButton}>
                 Save
               </button>

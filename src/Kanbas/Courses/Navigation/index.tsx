@@ -9,20 +9,19 @@ export default function CoursesNavigation() {
   const { pathname } = useLocation();
   const links = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "Grades", "People"];
 
-    return (
-      <div id="wd-courses-navigation" className="list-group fs-5 rounded-0">
+  return (
+    <div id="wd-courses-navigation" className="list-group fs-5 rounded-0">
 
       {links.map((link: any) => (
-        <Link key={link} to={link} 
-        className={`list-group-item border border-0
+        <Link key={link} to={link}
+          className={`list-group-item border border-0
               ${pathname.includes(link) ? "active" : "text-danger"}`}>
-          
           <br />
           {link}
         </Link>
       ))}
 
-        {/* <a id="wd-course-home-link"    
+      {/* <a id="wd-course-home-link"    
         href={`#/Kanbas/Courses/${course?._id}/Home`}
         className="list-group-item active border border-0">Home</a>
 
@@ -50,5 +49,6 @@ export default function CoursesNavigation() {
         href={`#/Kanbas/Courses/${course?._id}/Grades`}
         className="list-group-item text-danger border border-0">Grades</a> */}
 
-  </div> 
-  );}
+    </div>
+  );
+}

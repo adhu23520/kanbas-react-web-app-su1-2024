@@ -3,10 +3,13 @@ import { useDispatch } from "react-redux";
 import { setCurrentUser } from "./reducer";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+
 export default function Profile() {
     const dispatch = useDispatch();
     const [profile, setProfile] = useState<any>({});
     const navigate = useNavigate();
+
     const fetchProfile = async () => {
         try {
             const account = await client.profile();
@@ -16,6 +19,10 @@ export default function Profile() {
         }
     };
 
+    useEffect(() => {
+        fetchProfile();
+    }, []);
+
 
     const signout = async () => {
         await client.signout();
@@ -23,7 +30,8 @@ export default function Profile() {
         navigate("/Kanbas/Account/Signin");
     };
 
-    useEffect(() => { fetchProfile(); }, []);
+
+
     return (
         <div>
             <h1>Profile</h1>
@@ -36,8 +44,10 @@ export default function Profile() {
                     <input className="form-control mb-2" value={profile.dob} onChange={(e) => setProfile({ ...profile, dob: e.target.value })} type="date" />
                     <input className="form-control mb-2" value={profile.email} onChange={(e) => setProfile({ ...profile, email: e.target.value })} />
                     <select className="form-control mb-2" onChange={(e) => setProfile({ ...profile, role: e.target.value })}>
-                        <option value="USER">User</option>            <option value="ADMIN">Admin</option>
-                        <option value="FACULTY">Faculty</option>      <option value="STUDENT">Student</option>
+                        <option value="USER">User</option>
+                        <option value="ADMIN">Admin</option>
+                        <option value="FACULTY">Faculty</option>
+                        <option value="STUDENT">Student</option>
                     </select>
                 </div>
             )}
